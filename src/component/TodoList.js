@@ -7,6 +7,7 @@ import EditTodoForm from "./EditTodoForm";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
+  // const [newTodos, setNewTodos] = useState()
 
   const addTodo = (todo) => {
     setTodos([
@@ -33,6 +34,7 @@ const TodoList = () => {
     );
   }
 
+
   const editTask = (task, id) => {
     setTodos(
       todos.map((todo) => 
@@ -55,6 +57,7 @@ const TodoList = () => {
             deleteTodo={deleteTodo}
             editTodo={editTodo}
             toggleComplete={toggleComplete}
+        
           />
         )
       )}
