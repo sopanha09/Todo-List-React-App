@@ -3,7 +3,7 @@ import { TfiWrite } from "react-icons/tfi";
 import Todo  from "./Todo";
 import { TodoForm } from "./TodoForm";
 import { v4 as uuidv4 } from "uuid";
-import { EditTodoForm } from "./EditTodoForm";
+import EditTodoForm from "./EditTodoForm";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -25,19 +25,24 @@ const TodoList = () => {
       )
     );
   }
-    
-  
 
   const editTodo = (id) => {
-    
+    setTodos(
+      todos.map((todo) => 
+        todo.id === id ? {...todo, isEditing: !todo.isEditing } : todo)
+    );
   }
 
   const editTask = (task, id) => {
-    
-  };
+    setTodos(
+      todos.map((todo) => 
+        todo.id === id ? { ...todo, task, isEditing: !todo.isEditing } : todo 
+      )
+    );
+  }
 
   return (
-    <div className="TodoWrapper">
+    <div className="TodoList">
       <h1>Today's Task < TfiWrite /></h1>
       <TodoForm addTodo={addTodo} />
       {todos.map((todo) =>
