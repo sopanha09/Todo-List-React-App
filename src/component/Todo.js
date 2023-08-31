@@ -9,4 +9,5 @@ const Todo = ({task, deleteTodo, editTodo, toggleComplete}) => {
     );
 };
 
+
 export default Todo;
