@@ -4,7 +4,7 @@ import { FiEdit } from "react-icons/fi"
 import { MdOutlineRadioButtonUnchecked } from "react-icons/md"
 import { MdCheckCircleOutline } from "react-icons/md"
 
-const Todo = ({task, deleteTodo, editTodo, toggleComplete,}) => {
+const Todo = ({task, deleteTodo, editTodo, toggleComplete, formattedDate, currentTime, }) => {
     const [preferences, setPreferences] = useState( { 'task1': false, } ) 
   
     function handleCheckBox(taskId) { 
@@ -31,7 +31,16 @@ const Todo = ({task, deleteTodo, editTodo, toggleComplete,}) => {
                     < MdOutlineRadioButtonUnchecked />
                 )}
             </span>
-            {task.task}</p>
+            {task.task}
+            <div
+                className="date-time"
+                style={{
+                    textDecoration: task.completed ? "line-through" : "none",
+                    opacity: task.completed ? 0.5 : 1,
+                }}> 
+                Created {formattedDate} @{currentTime}
+                </div>
+            </p>
             <div>
                 < FiEdit onClick={() => editTodo(task.id)} />
                 < BiTrash onClick={() => deleteTodo(task.id)} />

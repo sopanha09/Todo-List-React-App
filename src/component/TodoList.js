@@ -43,6 +43,29 @@ const TodoList = () => {
     );
   }
 
+  const currentDate = new Date().getDate();
+  const currentMonth = new Date().toLocaleString('default', { month: 'short' });
+   
+  const addSuffix = (day) => {
+    switch (day % 10) {
+      case 1:
+        return day + 'st';
+      case 2:
+        return day + 'nd';
+      case 3:
+        return day + 'rd';
+      default:
+        return day + 'th';
+    }
+  };
+
+  const formattedDate = currentMonth + ' ' + addSuffix(currentDate);
+
+  const currentTime = new Date().toLocaleTimeString([], {
+    hour: "numeric",
+    minute: "2-digit"
+  });
+
   return (
     <div className="TodoList">
       <h1>Today's Task < TfiWrite /></h1>
@@ -57,7 +80,8 @@ const TodoList = () => {
             deleteTodo={deleteTodo}
             editTodo={editTodo}
             toggleComplete={toggleComplete}
-        
+            formattedDate={formattedDate}
+            currentTime={currentTime}
           />
         )
       )}
