@@ -15,8 +15,8 @@ const TodoList = () => {
     ]);
   }
 
-  const deleteTodo = (id) => {
-   
+  const deleteTodo = (id) => { 
+   setTodos(todos.filter((todo) => todo.id !== id));
   }
   const toggleComplete = (id) => {
     setTodos(
