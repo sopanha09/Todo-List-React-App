@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Todo } from "./Todo";
+import { TfiWrite } from "react-icons/tfi";
+import Todo  from "./Todo";
 import { TodoForm } from "./TodoForm";
 import { v4 as uuidv4 } from "uuid";
 import { EditTodoForm } from "./EditTodoForm";
@@ -37,7 +38,7 @@ const TodoList = () => {
 
   return (
     <div className="TodoWrapper">
-      <h1>Today's Task</h1>
+      <h1>Today's Task < TfiWrite /></h1>
       <TodoForm addTodo={addTodo} />
       {todos.map((todo) =>
         todo.isEditing ? (

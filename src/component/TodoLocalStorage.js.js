@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
+import { TfiWrite } from "react-icons/tfi";
 import { TodoForm } from './TodoForm'
 import { v4 as uuidv4 } from 'uuid';
 import { Todo } from './Todo';
 import { EditTodoForm } from './EditTodoForm';
 uuidv4();
 
-export const TodoLocalStorage = () => {
+const TodoLocalStorage = () => {
     const [todos, setTodos] = useState([])
 
     useEffect(() => {
@@ -24,7 +25,7 @@ export const TodoLocalStorage = () => {
         setTodos(newTodos);
         localStorage.setItem('todos', JSON.stringify(newTodos));
     }
-    
+
     const deleteTodo = id => {
        
     }
@@ -38,7 +39,7 @@ export const TodoLocalStorage = () => {
     }
   return (
     <div className='TodoWrapper'>
-        <h1>Today's Task</h1>
+        <h1>Today's Task < TfiWrite /></h1>
         <TodoForm addTodo={addTodo} />
         {todos.map((todo, index) => (
             todo.isEditing ? (
@@ -52,3 +53,5 @@ export const TodoLocalStorage = () => {
     </div>
   )
 }
+
+export default TodoLocalStorage;
