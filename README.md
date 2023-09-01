@@ -1,22 +1,11 @@
-# Todo List Project
+# Todo List App Project
 
-## Style
-### Color
+## Todo-App
+[Live server](http://localhost:3000/)
 
-- **Primary Color :**
-    - Light Orange Shade : `#EDDCD2`
-    - Very Pale Orange : `#FFF1E6`
-    - Midnight Black : `#212529`
+## UI
+[Link to figma](https://www.figma.com/proto/JZp8EY572tf14UVuPTZiTB/ToDo-List?type=design&node-id=1-44&t=vWnzEtaBbNh0olrG-0&scaling=min-zoom&page-id=0%3A1)
 
-<br>
+## Convention Guide
 
-- **Secondary Color :**
-    - White Smoke : `#F5F5F5`
-    - Ash Gray : `#B7B7A4`
-
-### Screen display
-
-- Mobile screen : `375px`
-- Desktop screen : `1440px`
-
-<br>
+[link here](/doc/convention.md)
