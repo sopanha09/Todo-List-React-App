@@ -28,13 +28,14 @@ body {
 
 .todo-input {
   height: 50px;
-  width: 90%;
+  width: 70%;
   margin-bottom: 2em;
   border: none;
   border-radius: 5px;
   background-color: #cdb4db;
   opacity: 0.6;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  outline: none;
 }
 
 input[type="text" i] {
@@ -64,7 +65,7 @@ input[type="text" i] {
   margin-top: 3em;
   margin-bottom: 1em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  width: 100%;
+  margin: 0 2em;
 }
 
 .container {
