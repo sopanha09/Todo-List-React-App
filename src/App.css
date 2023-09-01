@@ -1,11 +1,90 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Hanken+Grotesk:wght@500;700;800&family=Montserrat:wght@500;700&family=Poppins:wght@100;200;300;400;500;600&family=Roboto:wght@100;300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Hanken+Grotesk:wght@500;700;800&family=Montserrat:wght@500;700&family=Poppins:wght@100;200;500;600&family=Roboto:wght@100;300;700&display=swap');
+
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+.App {
+    text-align: center;
 }
 
 
-  
+.TodoTitle {
+    font-weight: 400;  
+    height: 3em;
+    background-color: #CDB4DB;
+    padding: 2em 0;
+    margin-bottom: 2em;
+    padding-left: 1em;
+    min-width: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.todo-input {
+    height: 50px;
+    width: 500px;
+    min-width: 20px;
+    margin-bottom: 2em;
+    border: none;
+    border-radius: 5px;
+    background-color: #CDB4DB;
+    opacity: 0.6;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.todo-input::placeholder {
+    padding-left: 1em;
+}
+
+.todo-btn {
+    margin-left: 1em;
+    height: 50px;
+    width: 60px;
+    min-width: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffc8dd;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.Todo {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to top, #FFC8DD, #CDB4DB);
+    opacity: 0.8;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 100%;
+    min-width: 20px;
+    /* cursor: pointer; */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.icon-checkbox {
+    margin-right: 1em;
+}
+
+.btn {
+    margin-right: 0.5em;
+}
+
+.date-time {
+    text-align: left;
+    font-style: italic;
+    font-weight: 200;
+    margin-left: 1.875rem;
+}
