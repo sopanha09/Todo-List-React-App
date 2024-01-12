@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TfiWrite } from "react-icons/tfi";
 import Todo from "./Todo";
 import { TodoForm } from "./TodoForm";
@@ -7,14 +7,26 @@ import EditTodoForm from "./EditTodoForm";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
-  // const [newTodos, setNewTodos] = useState()
 
   const addTodo = (todo) => {
-    setTodos([
-      ...todos,
-      { id: uuidv4(), task: todo, completed: false, isEditing: false },
-    ]);
-  };
+    const id = uuidv4(); 
+    const newTodo = { id: id, task: todo, completed: false, isEditing: false };
+   
+    const updatedTodos = [...todos, newTodo];
+   
+    localStorage.setItem('todos', JSON.stringify(updatedTodos));
+    
+    setTodos(updatedTodos);
+   };
+   
+
+  useEffect(() => {
+    const storedTodos = localStorage.getItem('todos');
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
+    }
+  }, []);
+
 
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));

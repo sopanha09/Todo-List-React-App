@@ -38,20 +38,30 @@ const Todo = ({
                     < MdOutlineRadioButtonUnchecked />
                 )}
             </span>
-            {task.task}
             </p>
-            <div className="edit-delete">
-                < FiEdit className="btn" onClick={() => editTodo(task.id)} />
-                < BiTrash onClick={() => deleteTodo(task.id)} />
-            </div>
         </div>
+        <div style={{display: "flex", flexDirection: "row", gap: "5rem"}} >
         <div
-            className="date-time"
             style={{
                 textDecoration: task.completed ? "line-through" : "none",
-                opacity: task.completed ? 0.5 : 1,
             }}> 
-            Created {formattedDate} @{currentTime}
+            <div
+            style={{
+                textDecoration: task.completed ? "line-through" : "none",
+            }}> 
+            <div  >{task.task}</div>
+        </div>
+            <div className="date-time"
+            style={{
+                opacity: task.completed ? 0.5 : 1,
+            }}>
+                Created {formattedDate} @{currentTime}
+            </div>
+        </div>
+        <div className="edit-delete">
+                < FiEdit className="btn" onClick={() => editTodo(task.id)} />
+                < BiTrash onClick={() => deleteTodo(task.id)} />
+        </div>
         </div>
     </div>
 

@@ -11,10 +11,6 @@ body {
   background-color: #eff7f6;
 }
 
-.App {
-  text-align: center;
-}
-
 .TodoTitle {
   font-weight: 400;
   height: 3em;
@@ -57,7 +53,7 @@ input[type="text" i] {
 
 .Todo {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background: linear-gradient(to top, #ffc8dd, #cdb4db);
   opacity: 0.8;
   padding: 0.75rem 1rem;
@@ -66,6 +62,11 @@ input[type="text" i] {
   margin-bottom: 1em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin: 1.5em 2em;
+}
+
+.todo-list {
+  text-align: right;
+  font-weight: 200;
 }
 
 .container {
@@ -83,9 +84,9 @@ input[type="text" i] {
 }
 
 .date-time {
-  text-align: left;
+  /* text-align: left; */
   font-style: italic;
   font-weight: 200;
   font-size: 0.75rem;
-  margin-left: 1.875rem;
+  /* margin-left: 1.875rem; */
 }
