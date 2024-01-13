@@ -20,11 +20,14 @@ const Todo = ({
   }
 
   return (
-    <div
-      className="Todo"
-      style={{ display: "flex", justifyContent: "space-around" }}
-    >
-      <div>
+    <div className="Todo">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: "1em",
+        }}
+      >
         <div
           className={`${task.completed ? "complete" : ""}`}
           onClick={() => toggleComplete(task.id)}
@@ -42,16 +45,16 @@ const Todo = ({
               <MdOutlineRadioButtonUnchecked />
             )}
           </div>
-          <div
-            style={{
-              textDecoration: task.completed ? "line-through" : "none",
-              opacity: task.completed ? 0.5 : 1,
-            }}
-          >
-            <div>{task.task}</div>
-            <div className="date-time">
-              Created {formattedDate} @{currentTime}
-            </div>
+        </div>
+        <div
+          style={{
+            textDecoration: task.completed ? "line-through" : "none",
+            opacity: task.completed ? 0.5 : 1,
+          }}
+        >
+          <div>{task.task}</div>
+          <div className="date-time">
+            Created {formattedDate} @{currentTime}
           </div>
         </div>
       </div>
@@ -60,6 +63,7 @@ const Todo = ({
           style={{
             display: "flex",
             flexDirection: "row",
+            textAlign: "center",
             gap: "0.5em",
           }}
         >
