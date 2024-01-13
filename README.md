@@ -3,7 +3,7 @@
 This is a Todo List project created by **Sous Sopanha** from **Fireflies team**.
 
 ## Todo-App
-[Project Overview]([http://localhost:3000](https://todo-list-react-app-beta.vercel.app/))
+[Project Overview]([https://todo-list-react-app-beta.vercel.app/])
 
 ## UI
 [Link to figma](https://www.figma.com/proto/JZp8EY572tf14UVuPTZiTB/ToDo-List?type=design&node-id=1-8&t=NTxKSvAeLwmMH7Dj-0&scaling=min-zoom&page-id=0%3A1)
