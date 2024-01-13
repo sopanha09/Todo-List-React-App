@@ -9,24 +9,22 @@ const TodoList = () => {
   const [todos, setTodos] = useState([]);
 
   const addTodo = (todo) => {
-    const id = uuidv4(); 
+    const id = uuidv4();
     const newTodo = { id: id, task: todo, completed: false, isEditing: false };
-   
+
     const updatedTodos = [...todos, newTodo];
-   
-    localStorage.setItem('todos', JSON.stringify(updatedTodos));
-    
+
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+
     setTodos(updatedTodos);
-   };
-   
+  };
 
   useEffect(() => {
-    const storedTodos = localStorage.getItem('todos');
+    const storedTodos = localStorage.getItem("todos");
     if (storedTodos) {
       setTodos(JSON.parse(storedTodos));
     }
   }, []);
-
 
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
@@ -79,28 +77,30 @@ const TodoList = () => {
   });
 
   return (
-    <div className="TodoList">
-      <div className="TodoTitle">
-        <h2 >
-          Today's Task <TfiWrite />
-        </h2>
+    <div className="App">
+      <div className="TodoList">
+        <div className="TodoTitle">
+          <h2>
+            Today's Task <TfiWrite />
+          </h2>
+        </div>
+        <TodoForm addTodo={addTodo} />
+        {todos.map((todo) =>
+          todo.isEditing ? (
+            <EditTodoForm editTodo={editTask} task={todo} />
+          ) : (
+            <Todo
+              key={todo.id}
+              task={todo}
+              deleteTodo={deleteTodo}
+              editTodo={editTodo}
+              toggleComplete={toggleComplete}
+              formattedDate={formattedDate}
+              currentTime={currentTime}
+            />
+          )
+        )}
       </div>
-      <TodoForm addTodo={addTodo} />
-      {todos.map((todo) =>
-        todo.isEditing ? (
-          <EditTodoForm editTodo={editTask} task={todo} />
-        ) : (
-          <Todo
-            key={todo.id}
-            task={todo}
-            deleteTodo={deleteTodo}
-            editTodo={editTodo}
-            toggleComplete={toggleComplete}
-            formattedDate={formattedDate}
-            currentTime={currentTime}
-          />
-        )
-      )}
     </div>
   );
 };

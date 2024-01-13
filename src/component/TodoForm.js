@@ -11,7 +11,7 @@ export const TodoForm = ({addTodo}) => {
         }
       };
   return (
-    <div style={{textAlign: "center"}} >
+    <div className='todo-form' >
       <form onSubmit={handleSubmit} className="TodoForm">
         <input 
         type="text" 

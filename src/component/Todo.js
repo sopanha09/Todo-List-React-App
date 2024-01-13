@@ -20,51 +20,58 @@ const Todo = ({
   }
 
   return (
-    <div className="Todo">
-        <div className="container">
-            <p className={`${task.completed ? 'complete' : ""}`} 
-            onClick={()=> toggleComplete(task.id)}
-            style={{
-                textDecoration: task.completed ? "line-through" : "none",
-                opacity: task.completed ? 0.5 : 1,
-            }}
-            >
-            <span 
-                className="icon-checkbox"
-                onClick={() => handleCheckBox('task1')}>
-                {preferences['task1'] ? (
-                    < MdCheckCircleOutline />
-                ) : (
-                    < MdOutlineRadioButtonUnchecked />
-                )}
-            </span>
-            </p>
-        </div>
-        <div style={{display: "flex", flexDirection: "row", gap: "5rem"}} >
+    <div
+      className="Todo"
+      style={{ display: "flex", justifyContent: "space-around" }}
+    >
+      <div>
         <div
+          className={`${task.completed ? "complete" : ""}`}
+          onClick={() => toggleComplete(task.id)}
+          style={{
+            textDecoration: task.completed ? "line-through" : "none",
+            display: "flex",
+            flexDirection: "row",
+            gap: "1em",
+          }}
+        >
+          <div className="container" onClick={() => handleCheckBox("task1")}>
+            {preferences["task1"] ? (
+              <MdCheckCircleOutline />
+            ) : (
+              <MdOutlineRadioButtonUnchecked />
+            )}
+          </div>
+          <div
             style={{
-                textDecoration: task.completed ? "line-through" : "none",
-            }}> 
-            <div
-            style={{
-                textDecoration: task.completed ? "line-through" : "none",
-            }}> 
-            <div  >{task.task}</div>
-        </div>
-            <div className="date-time"
-            style={{
-                opacity: task.completed ? 0.5 : 1,
-            }}>
-                Created {formattedDate} @{currentTime}
+              textDecoration: task.completed ? "line-through" : "none",
+              opacity: task.completed ? 0.5 : 1,
+            }}
+          >
+            <div>{task.task}</div>
+            <div className="date-time">
+              Created {formattedDate} @{currentTime}
             </div>
+          </div>
         </div>
-        <div className="edit-delete">
-                < FiEdit className="btn" onClick={() => editTodo(task.id)} />
-                < BiTrash onClick={() => deleteTodo(task.id)} />
+      </div>
+      <div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            gap: "0.5em",
+          }}
+        >
+          <div>
+            <FiEdit onClick={() => editTodo(task.id)} />
+          </div>
+          <div>
+            <BiTrash onClick={() => deleteTodo(task.id)} />
+          </div>
         </div>
-        </div>
+      </div>
     </div>
-
   );
 };
 
