@@ -2,9 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const todoApi = createApi({
   reducerPath: "todoApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: "https://localhost:8080/",
-  }),
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8080/" }),
   endpoints: (builder) => ({
     getTodos: builder.query({
       query: () => "todos",
@@ -24,16 +22,24 @@ export const todoApi = createApi({
       }),
     }),
     deleteTodo: builder.mutation({
-      query: ({ id }) => ({
+      query: (id) => ({
         url: `todos/${id}`,
         method: "DELETE",
       }),
     }),
     completedTodo: builder.mutation({
-      query: ({ id }) => ({
+      query: (id) => ({
         url: `todos/${id}/completed`,
         method: "PUT",
       }),
     }),
   }),
 });
+
+export const {
+  useGetTodosQuery,
+  useCreateTodoMutation,
+  useUpdateTodoMutation,
+  useDeleteTodoMutation,
+  useCompletedTodoMutation,
+} = todoApi;

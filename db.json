@@ -1,34 +1,31 @@
 {
   "todos": [
     {
-      "userId": 1,
       "id": "1",
-      "title": "delectus aut autem",
+      "title": "hello",
       "completed": false
     },
     {
-      "userId": 1,
       "id": "2",
-      "title": "quis ut nam facilis et officia qui",
+      "title": "world",
       "completed": false
-    },
-    {
-      "userId": 1,
-      "id": "3",
-      "title": "quis ut nam facilis et officia qui",
-      "completed": false
-    },
-    {
-      "id": "049c",
-      "title": "hello"
     },
     {
       "id": "300d",
-      "title": "hello"
+      "title": "hello",
+      "completed": false
     },
     {
-      "id": "d0be",
-      "title": ""
+      "id": "7dd3",
+      "title": "Learn"
+    },
+    {
+      "id": "28aa",
+      "title": "hey"
+    },
+    {
+      "id": "5ef1",
+      "title": "Refactor todo"
     }
   ]
 }
