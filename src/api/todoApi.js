@@ -3,35 +3,35 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const todoApi = createApi({
   reducerPath: "todoApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8080/" }),
+  tagTypes: ["todos"],
   endpoints: (builder) => ({
     getTodos: builder.query({
-      query: () => "todos",
+      query: () => "/todos",
+      providesTags: ["todos"],
     }),
     createTodo: builder.mutation({
       query: (newTodo) => ({
-        url: "todos",
+        url: "/todos",
         method: "POST",
-        body: newTodo,
+        body: { ...newTodo, completed: newTodo.completed ?? false },
       }),
+      invalidatesTags: ["todos"],
     }),
     updateTodo: builder.mutation({
-      query: ({ id, changes }) => ({
-        url: `todos/${id}`,
-        method: "PUT",
-        body: changes,
+      query: (todo) => ({
+        url: `/todos/${todo.id}`,
+        method: "PATCH",
+        body: todo,
       }),
+      invalidatesTags: ["todos"],
     }),
     deleteTodo: builder.mutation({
-      query: (id) => ({
-        url: `todos/${id}`,
+      query: (todo) => ({
+        url: `/todos/${todo.id}`,
         method: "DELETE",
+        body: todo,
       }),
-    }),
-    completedTodo: builder.mutation({
-      query: (id) => ({
-        url: `todos/${id}/completed`,
-        method: "PUT",
-      }),
+      invalidatesTags: ["todos"],
     }),
   }),
 });
@@ -41,5 +41,4 @@ export const {
   useCreateTodoMutation,
   useUpdateTodoMutation,
   useDeleteTodoMutation,
-  useCompletedTodoMutation,
 } = todoApi;
