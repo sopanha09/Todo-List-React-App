@@ -1,12 +1,6 @@
 {
   "todos": [
     {
-      "id": "80ea",
-      "userId": 1,
-      "title": "happyyhhhf",
-      "completed": false
-    },
-    {
       "id": "7d54",
       "userId": 1,
       "title": "hello",
@@ -15,25 +9,13 @@
     {
       "id": "5684",
       "userId": 1,
-      "title": "good job lulu...",
+      "title": "good job ",
       "completed": true
     },
     {
       "id": "7108",
       "userId": 1,
       "title": "hello",
-      "completed": false
-    },
-    {
-      "id": "3ee8",
-      "userId": 1,
-      "title": "go",
-      "completed": false
-    },
-    {
-      "id": "008b",
-      "userId": 1,
-      "title": "he",
       "completed": false
     },
     {
@@ -47,6 +29,6 @@
       "userId": 1,
       "title": "slay",
       "completed": false
-    },
+    }
   ]
 }

@@ -72,62 +72,66 @@ const TodoList = () => {
           <img src="/upload.svg" alt="Upload" />
         </button>
       </form>
-      <ul>
-        {todos?.map((todo) => (
-          <li key={todo.id}>
-            {editingTodo && editingTodo.id === todo.id ? (
-              <>
-                <form
-                  className="update-todo"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    updateTitle();
-                  }}
-                >
-                  <input
-                    type="text"
-                    value={title}
-                    placeholder="Update task..."
-                    onChange={(e) => setTitle(e.target.value)}
-                  />
-                  <button className="btn-update " type="submit">
-                    <img src="/upload.svg" alt="Upload" />
-                  </button>
-                </form>
-              </>
-            ) : (
-              <div className="main-todo">
-                <div className="text-todo ">
-                  <Form.Check
-                    type="checkbox"
-                    checked={todo.completed}
-                    id={todo.id}
-                    onChange={() =>
-                      updateTodo({ ...todo, completed: !todo.completed })
-                    }
-                  />
-                  <p>{todo.title}</p>
-                </div>
-                <div>
-                  <button
-                    className="todo-btn"
-                    onClick={() => starEditTodo(todo)}
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <ul>
+          {todos?.map((todo) => (
+            <li key={todo.id}>
+              {editingTodo && editingTodo.id === todo.id ? (
+                <>
+                  <form
+                    className="update-todo"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      updateTitle();
+                    }}
                   >
-                    <img src="/pencil-square.svg" alt="Pencil-Square" />
-                  </button>
-                  <button
-                    className="todo-btn"
-                    variant="danger"
-                    onClick={() => deleteTodo({ id: todo.id })}
-                  >
-                    <img src="/trash.svg" alt="Trash" />
-                  </button>
+                    <input
+                      type="text"
+                      value={title}
+                      placeholder="Update task..."
+                      onChange={(e) => setTitle(e.target.value)}
+                    />
+                    <button className="btn-update " type="submit">
+                      <img src="/upload.svg" alt="Upload" />
+                    </button>
+                  </form>
+                </>
+              ) : (
+                <div className="main-todo">
+                  <div className="text-todo ">
+                    <Form.Check
+                      type="checkbox"
+                      checked={todo.completed}
+                      id={todo.id}
+                      onChange={() =>
+                        updateTodo({ ...todo, completed: !todo.completed })
+                      }
+                    />
+                    <p>{todo.title}</p>
+                  </div>
+                  <div>
+                    <button
+                      className="todo-btn"
+                      onClick={() => starEditTodo(todo)}
+                    >
+                      <img src="/pencil-square.svg" alt="Pencil-Square" />
+                    </button>
+                    <button
+                      className="todo-btn"
+                      variant="danger"
+                      onClick={() => deleteTodo({ id: todo.id })}
+                    >
+                      <img src="/trash.svg" alt="Trash" />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
