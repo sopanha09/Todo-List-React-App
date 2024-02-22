@@ -52,12 +52,6 @@ const TodoList = () => {
     }
   };
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  } else if (isError) {
-    <p>Error....</p>;
-  }
-
   return (
     <div className="todo">
       <form onSubmit={handleSubmit}>
@@ -73,7 +67,11 @@ const TodoList = () => {
         </button>
       </form>
       {isLoading ? (
-        <div>Loading...</div>
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      ) : isError ? (
+        <div>Error</div>
       ) : (
         <ul>
           {todos?.map((todo) => (
