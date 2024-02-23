@@ -11,7 +11,7 @@ const TodoList = () => {
   const [newTodo, setNewTodo] = useState("");
   const [title, setTitle] = useState("");
   const [editingTodo, setEditingTodo] = useState("");
-  const { data: todos, refetch, isLoading, isError } = useGetTodosQuery();
+  const { data: todos, refetch, isLoading } = useGetTodosQuery();
   const [createTodo] = useCreateTodoMutation();
   const [updateTodo] = useUpdateTodoMutation();
   const [deleteTodo] = useDeleteTodoMutation();
@@ -67,11 +67,9 @@ const TodoList = () => {
         </button>
       </form>
       {isLoading ? (
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
+        <div class="spinner-border" role="status" style={{ marginLeft: "8em" }}>
+          <span class="sr-only"></span>
         </div>
-      ) : isError ? (
-        <div>Error</div>
       ) : (
         <ul>
           {todos?.map((todo) => (
